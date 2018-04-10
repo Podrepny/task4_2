@@ -28,6 +28,7 @@ if [ $NTP_CFG_STAT -ne "0" ] ; then
 	echo -e "\nNOTICE: /etc/ntp.conf was changed. Calculated diff:"
 	echo "$NTP_CFG_DIFF"
 	sudo cp "$NTP_ORIG" "$NTP_CFG"
+	sudo service ntp restart
 fi
 
 if [ $SERVICE_STATUS -ne "0" ]; then
